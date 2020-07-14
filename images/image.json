@@ -13,7 +13,6 @@
       "instance_type": "t2.micro",
       "ssh_username": "ec2-user",
       "ssh_keypair_name": "project-demo",
-      "ssh_private_key_file": "/home/devops/ssh-key/project-demo.pem",
       "ssh_timeout": "5m",
       "vpc_id": "vpc-7a3f6600",
       "associate_public_ip_address": true,
