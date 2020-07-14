@@ -1,5 +1,7 @@
 provider "aws" {
   region = "us-east-1"
+ access_key = "AKIAR4YNW7M"
+  secret_key = "qjx2NscK/GYxgsJZwCXRxfJtp1Gp"
 }
 
 variable "instances_number" {
@@ -13,7 +15,7 @@ variable "vpc" {
 #### Ec2 eith EBS ###
 
 module "ec2" {
-  source = "../moule-ec2"
+  source = "./modules"
 
   instance_count = var.instances_number
 
@@ -24,7 +26,9 @@ module "ec2" {
   vpc_security_group_ids      = ["sg-061670c1bd7f3f494"]
   associate_public_ip_address = true
   key_name                    = "project-demo"
-  user_data                   = "${file{"userdata.sh"}}"
+  user_data                   = "${file("userdata.sh")}"
+
+
 }
 
 resource "aws_volume_attachment" "ebs-attach" {
